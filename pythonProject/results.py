@@ -7,7 +7,6 @@ def show_results(user_name, user_surname, score):
     result_window = tk.Tk()
     result_window.geometry("800x600")
 
-
     image_path = "image.jpg"
     try:
         print("Trying to load image...")
@@ -23,19 +22,11 @@ def show_results(user_name, user_surname, score):
 
     canvas = tk.Canvas(result_window, width=image.width, height=image.height)
     canvas.pack(fill=tk.BOTH, expand=True)
-
-
     canvas.create_image(0, 0, anchor="nw", image=photo)
-
-
     canvas.image = photo
-
-
     result_label = tk.Label(result_window, text=f"{user_name} {user_surname}\nScore: {score}",
                             font=("Arial", 16), fg="black", bg="white")
     result_label.place(relx=0.5, rely=0.1, anchor="n")
-
-
     exit_button = tk.Button(result_window, text="Exit", width=30, height=2, bg="#be66e3", fg="white", font=("Arial", 14), command=result_window.quit)
     exit_button.place(relx=0.5, rely=0.9, anchor="center")
 
@@ -43,7 +34,6 @@ def show_results(user_name, user_surname, score):
     def show_top_scorers():
         top_scorers_window = tk.Toplevel(result_window)
         top_scorers_window.title("Top Scorer(s)")
-
 
         try:
             conn = sqlite3.connect('my_database.db')

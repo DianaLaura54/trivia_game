@@ -57,10 +57,8 @@ def save_game_score_to_db(name, surname, selected_category, score):
 
     category_id = category[0]
 
-
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_time = datetime.now().strftime("%H:%M:%S")
-
 
     cursor.execute('''
         INSERT INTO game (idgame, idset, date1, hour1, score) 

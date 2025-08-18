@@ -101,8 +101,6 @@ def insert_qa_data():
                 options[3],
                 correct_answer
             ))
-
-
             cursor.execute('''
                     INSERT INTO test (idset, idint)
                     VALUES (?, ?)
@@ -110,9 +108,7 @@ def insert_qa_data():
                 set_id,
                 question_id
             ))
-
             question_id += 1
-
         set_id += 1
 
     conn.commit()
