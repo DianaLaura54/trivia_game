@@ -12,8 +12,8 @@ def test_db():
     test_db_name = 'test_database.db'
     if os.path.exists(test_db_name):
         os.remove(test_db_name)
-    conn = sqlite3.connect(test_db_name)
-    cursor = conn.cursor()
+    conn = sqlite3.connect(test_db_name) #database connected
+    cursor = conn.cursor() #cursor
 
 
     cursor.execute('''
@@ -66,7 +66,7 @@ def test_db():
     cursor.execute("INSERT INTO test_set (domain1) VALUES ('informatics')")
     cursor.execute("INSERT INTO test_set (domain1) VALUES ('mathematics')")
     cursor.execute("INSERT INTO test_set (domain1) VALUES ('physics')")
-    conn.commit()
+    conn.commit() #commit the changes to the database
     yield conn, cursor, test_db_name
     cursor.close()
     conn.close()
